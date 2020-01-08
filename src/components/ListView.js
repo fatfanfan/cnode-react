@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Request from '../request/http'
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 function ListView(props) {
   const [count, setCount] = useState([])
   useEffect(
@@ -29,9 +34,9 @@ function ListView(props) {
   return (
     <div >
       { count.map((item, index) =>
-        <div key={ item.id } onClick={ () => getDetail(item.id) }>
-          <span>{ item.title }</span>
-          <span onClick={ () => getUserInfo(item.author.loginname) }>{ item.author.loginname }</span>
+        <div key={ item.id } >
+          <Link to={"/artical/" + item.id} >{item.title}</Link>
+          <Link to={"/user/" + item.author.loginname}>{item.author.loginname}</Link>
         </div>
       ) }
     </div>
