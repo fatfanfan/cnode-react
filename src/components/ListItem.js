@@ -31,7 +31,7 @@ function ListItem(props) {
 }
 
 function Types(props) {
-  let [type]
+  
 }
 
 

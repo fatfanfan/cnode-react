@@ -5,45 +5,47 @@ import {
   Route,
   Link
 } from "react-router-dom";
-
+import { Layout } from 'antd';
 import './App.css';
 
 
-import Header from "./components/Header";
-import ListView from "./components/ListView.js";
-import Footer from "./components/Footer";
-import Artical from "./components/Artical";
-import SiderBar from "./components/SiderBar";
 
+
+import VHeader from "./components/Header";
+import VListView from "./components/ListView.js";
+import VFooter from "./components/Footer";
+import VArtical from "./components/Artical";
+import VSiderBar from "./components/SiderBar";
+
+
+const { Header, Footer, Sider, Content } = Layout;
 function App() {
   return (
     <div>
-      <Switch>
-        {/* If the current URL is /about, this route is rendered
-            while the rest are ignored */}
+      <Layout theme="light">
+        <Header style={ { background: "#444444" } }>
+          <VHeader />
+        </Header>
+        <Content style={ { background: "#e1e1e1" } }>
+          <Switch>
+            <Route path="/artical/:id">
+              <VArtical />
+            </Route>
+            <Route path="/user/:username">
+              <VSiderBar />
+            </Route>
+            <Route path="/">
 
+              <VListView />
 
-        {/* Note how these two routes are ordered. The more specific
-            path="/contact/:id" comes before path="/contact" so that
-            route will render when viewing an individual contact */}
-        <Route path="/artical/:id">
-          <Artical  />
-        </Route>
-        <Route path="/user/:username">
-          <SiderBar />
-        </Route>
-        {/* If none of the previous routes render anything,
-            this route acts as a fallback.
+            </Route>
+          </Switch>
+        </Content>
+        <Footer>
+          <VFooter />
+        </Footer>
+      </Layout>
 
-            Important: A route with path="/" will *always* match
-            the URL because all URLs begin with a /. So that's
-            why we put this one last of all */}
-        <Route path="/">
-          <Header />
-          <ListView/>
-          <Footer/>
-        </Route>
-      </Switch>
     </div>
   );
 }

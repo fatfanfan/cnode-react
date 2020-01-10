@@ -6,6 +6,8 @@ import {
   Route,
   Link
 } from "react-router-dom";
+
+
 function ListView(props) {
   const [count, setCount] = useState([])
   useEffect(
@@ -35,8 +37,8 @@ function ListView(props) {
     <div >
       { count.map((item, index) =>
         <div key={ item.id } >
-          <Link to={"/artical/" + item.id} >{item.title}</Link>
-          <Link to={"/user/" + item.author.loginname}>{item.author.loginname}</Link>
+          <Link to={ "/artical/" + item.id } >{ item.title }</Link>
+          <Link to={ "/user/" + item.author.loginname }>{ item.author.loginname }</Link>
         </div>
       ) }
     </div>

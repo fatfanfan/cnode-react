@@ -7,9 +7,18 @@ import {
   Link
 } from "react-router-dom";
 
+
 function Header() {
   return (
-    <h1>Header</h1>
+    <div style={ { display: "flex", justifyContent: "space-between", alignItems: "center" } }>
+      <Link to="/">
+        <img style={ { width: "150px", height: "60px" } }
+          src="https://static2.cnodejs.org/public/images/cnodejs_light.svg" alt="" />
+      </Link>
+      <div >
+        <Link to="/" >首页</Link>
+      </div>
+    </div>
   )
 }
 

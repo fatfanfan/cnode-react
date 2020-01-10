@@ -6,7 +6,9 @@
 /.pnp
 .pnp.js
 .idea
+.vscode
 .history
+.gitignore
 # testing
 /coverage
 
