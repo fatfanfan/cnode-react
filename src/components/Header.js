@@ -12,7 +12,7 @@ function Header() {
   return (
     <div style={ { display: "flex", justifyContent: "space-between", alignItems: "center" } }>
       <Link to="/">
-        <img style={ { width: "150px", height: "60px" } }
+        <img style={ { width: "150px", height: "40px" } }
           src="https://static2.cnodejs.org/public/images/cnodejs_light.svg" alt="" />
       </Link>
       <div >
