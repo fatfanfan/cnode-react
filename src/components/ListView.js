@@ -42,7 +42,7 @@ function ListView(props) {
   }
   return (
     <div className="listview-container">
-      <Tabs style={{background:"#f6f6f6"}} defaultActiveKey="1" onChange={callback} >
+      <Tabs style={{background:"#f6f6f6"}} defaultActiveKey="0" onChange={callback} >
         {
           tabs.map((tab,index)=>
             <TabPane tab={tab} key={index}>

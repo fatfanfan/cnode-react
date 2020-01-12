@@ -4,7 +4,7 @@ import {Link ,useParams} from "react-router-dom";
 import {Row, Col} from "antd"
 import "../styles/markdown.css"
 import "../styles/artical.less"
-
+import Types from "./Types"
 
 
 function Artical(props) {
@@ -26,36 +26,34 @@ function Artical(props) {
 
   return (
     <div className="artical-container" >
-      <Row gutter={20} style={{margin:" 0 10px"}}>
-        <Col  xs={24}   sm={18}  style={{padding:"0"}}>
+      <Row  style={{margin:" 0 10px"}}>
+        <Col span={24}  >
           <Row style={{background:'white',padding:"10px"}}>
             <Col span={24}  style={{borderBottom:"1px solid #e1e1e1"}}>
-              <h1>{artical.title}</h1>
+              <div  className="artical-header">
+                <Types item={artical}>
+                </Types>
+                  <h1 style={{margin: "0"}}>
+                    {artical.title}
+                  </h1>
+              </div>
               <div>
-                <span>浏览量 {artical.visit_count}</span>
-                <span>来自 {artical.tab}</span>
+                <Link style={{display:"flex",justifyContent:"flex-start",paddingBottom: "10px",flexGrow: "0"}} to={`/user/${author.loginname}`}>
+                    <img style={{width:"30px", height:"30px"}}
+                         src={author.avatar_url}
+                         alt={author.loginame}/>
+                  <span className="userInfo" >
+                    {author.loginname}
+                  </span>
+                </Link>
+                <Row>
+                  <Col xs={12}  sm={12} md={4}>浏览量 {artical.visit_count}</Col>
+                  <Col xs={12} sm={12} md={4}>来自 {artical.tab}</Col>
+                </Row>
               </div>
             </Col>
             <Col span={24} >
               <div className="markdown-body" dangerouslySetInnerHTML={{__html: artical.content}}/>
-            </Col>
-          </Row>
-        </Col>
-        <Col xs={0} sm={6}    >
-          <Row style={{background:"white"}}>
-            <Col span={24}>
-              <h2>个人信息</h2>
-            </Col>
-            <Col span={24}>
-              <Link to={`/user/${author.loginname}`}>
-                <div className="userInfo" >
-                  作者: {author.loginname}
-                  <img src={author.avatar_url} alt={author.loginame}/>
-                </div>
-              </Link>
-              <div>
-                积分:  {author.score}
-              </div>
             </Col>
           </Row>
         </Col>
