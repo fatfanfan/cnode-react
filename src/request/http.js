@@ -10,7 +10,7 @@ let Url = {
 }
 
 const Request = {
-  getTopics(data = {page: 1, limit : 20}) {
+  getTopics(data) {
     return new Promise((resolve, reject) => {
       axios.get(Url.getTopics, {
         params: data

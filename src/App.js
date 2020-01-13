@@ -5,7 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import { Layout } from 'antd';
+import { Layout , BackTop } from 'antd';
 import './App.css';
 
 
@@ -13,39 +13,34 @@ import './App.css';
 
 import VHeader from "./components/Header";
 import VListView from "./components/ListView.js";
-import VFooter from "./components/Footer";
 import VArtical from "./components/Artical";
-import VSiderBar from "./components/SiderBar";
+import VUserInfo from "./components/UserInfo";
 
 
 const { Header, Footer, Sider, Content } = Layout;
 function App() {
   return (
-    <div>
-      <Layout theme="light">
+    <div className="cnode-container">
+      <BackTop>
+      </BackTop>
+      <Layout theme="light" style={{display:"flex", height:"100%", flexDirection:"column"}}>
         <Header style={ { background: "#444444" } }>
           <VHeader />
         </Header>
-        <Content style={ { background: "#e1e1e1" } }>
+        <Content style={{ background: "#e1e1e1", flexGrow:"1",minHeight:"calc(100vh - 64px)"}}>
           <Switch>
             <Route path="/artical/:id">
               <VArtical />
             </Route>
             <Route path="/user/:username">
-              <VSiderBar />
+              <VUserInfo />
             </Route>
             <Route path="/">
-
               <VListView />
-
             </Route>
           </Switch>
         </Content>
-        <Footer>
-          <VFooter />
-        </Footer>
       </Layout>
-
     </div>
   );
 }

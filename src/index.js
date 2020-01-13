@@ -6,8 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import 'github-markdown-css'
 import {
   BrowserRouter as Router,
-  Switch,
-  Route
+
 } from "react-router-dom";
 
 ReactDOM.render(
