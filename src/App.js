@@ -17,7 +17,7 @@ import VArtical from "./components/Artical";
 import VUserInfo from "./components/UserInfo";
 
 
-const { Header, Footer, Sider, Content } = Layout;
+const { Header,  Content } = Layout;
 function App() {
   return (
     <div className="cnode-container">
